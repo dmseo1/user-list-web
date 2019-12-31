@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Page</title>
+</head>
+<style>
+    table {
+        border: 1px solid #000000;
+        border-collapse: collapse;
+    }
+
+    th {
+        border: 1px solid #000000;
+    }
+
+    td {
+        border: 1px solid #000000;
+    }
+
+    div {}
+</style>
+
+<body>
+    <h1>This is list</h1>
+
+    <table>
+        <tr>
+           <th>
+               연번
+           </th>
+           <th>
+               ID
+           </th>
+            <th>
+                제목
+            </th>
+            <th>
+                내용
+            </th>
+            <th>
+                저자
+            </th>
+        </tr>
+        
+            <% for(i = 0; i < dataArray.length; i ++) { %>
+            <tr>
+                <td width="5%"><%= (i + 1) %></td>
+                <td width="5%"><%= dataArray[i].id %></td>
+                <td width="10%"><%= dataArray[i].title %></td>
+                <td width="70%"><%= dataArray[i].description %></td>
+                <td width="10%"><%= dataArray[i].author %></td>
+            </tr>
+            <% } %>
+     
+    </table>
+
+
+    <form name="newBook" action="/topic/insert" method="POST">
+        <div>
+            <div style='width:100%'>
+                <div style='width:20%'>제목</div>
+                <div style='width:70%'> <input style='width:100%' type="text" placeholder="제목을 입력하세요" name="title" />
+                </div>
+            </div>
+            <div style='width:100%'>
+                <div style='width:20%'>내용</div>
+                <div style='width:70%'> <input style='width:100%' type="text" placeholder="내용을 입력하세요"
+                        name="description" /></div>
+            </div>
+            <div style='width:100%'>
+                <div style='width:20%'>저자</div>
+                <div style='width:70%'> <input style='width:100%' type="text" placeholder="저자를 입력하세요" name="author" />
+                </div>
+            </div>
+            <div>
+                <input type='submit' name='go' value='저장' />
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>

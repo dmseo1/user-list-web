@@ -10,8 +10,7 @@ app.set('html', require('ejs'));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended:false}));
-
-
+app.use('/', require('./router/index'));
 
 var port = process.env.PORT || 3000;
 app.listen(port, () => {
